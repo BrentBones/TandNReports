@@ -1,0 +1,66 @@
+﻿<UserControl xmlns:igWpf="http://schemas.infragistics.com/xaml/wpf"  x:Class="TandNTestMachine.Modules.Report.Views.StandardReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:igDP="http://infragistics.com/DataPresenter"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TandNTestMachine.Core;component/Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+            <Style x:Key="buttonInCellStyle" TargetType="{x:Type igDP:CellValuePresenter}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type igDP:CellValuePresenter}">
+                            <Button Content="Graph" Click="OnGraphSensors"></Button>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+
+        <igWpf:XamDataGrid DataSource="{Binding Path=Items}">
+            <igWpf:XamDataGrid.FieldLayoutSettings>
+                <igWpf:FieldLayoutSettings AddNewRecordLocation="OnBottom" AllowClipboardOperations="None"
+                                           AutoGenerateFields="False" AllowDelete="True" />
+            </igWpf:XamDataGrid.FieldLayoutSettings>
+            <igWpf:XamDataGrid.FieldSettings>
+                <igWpf:FieldSettings AllowEdit="True" AllowGroupBy="True" FilterClearButtonVisibility="Visible" />
+            </igWpf:XamDataGrid.FieldSettings>
+            <igWpf:XamDataGrid.FieldLayouts>
+                <igWpf:FieldLayout Key="TestProcedureReportModel">
+                    <igWpf:FieldLayout.FieldSettings>
+                        <igWpf:FieldSettings CellClickAction="SelectRecord" />
+                    </igWpf:FieldLayout.FieldSettings>
+                    <igWpf:FieldLayout.Settings>
+                        <igWpf:FieldLayoutSettings RecordSelectorLocation="LeftOfCellArea" />
+                    </igWpf:FieldLayout.Settings>
+                    <igWpf:TextField Name="Name" /><igWpf:TextField Label="Item Name" Name="ItemName" />
+                    <igWpf:DateTimeField Label="Start Time" Name="StartTime" />
+                    <igWpf:DateTimeField Label="End Time" Name="EndTime" /><igWpf:NumericField Name="Temperature" />
+                    <igWpf:NumericField Name="Humidity" />
+                    <igWpf:CheckBoxField Label="Run To Completion" Name="RunToCompletion" />
+                    <igWpf:Field BindingType="Unbound" Label="Graph">
+                        <igWpf:Field.Settings>
+                            <igWpf:FieldSettings CellValuePresenterStyle="{StaticResource buttonInCellStyle}" />
+                        </igWpf:Field.Settings>
+                    </igWpf:Field>
+                    <igWpf:Field Label="TestProcedureOperations" Name="TestProcedureOperations" />
+                </igWpf:FieldLayout>
+                <igWpf:FieldLayout Key="TestOperationReportModel">
+                    <igWpf:NumericField Label="Operation Index" Name="OperationIndex" />
+                    <igWpf:TextField Label="Op Code Name" Name="OpCodeName" />
+                    <igWpf:TextField Label="Param1 Name" Name="Param1Name" /><igWpf:TextField Name="Param1" />
+                    <igWpf:TextField Label="Param2 Name" Name="Param2Name" /><igWpf:TextField Name="Param2" />
+                    <igWpf:TextField Label="Data1 Name" Name="Data1Name" /><igWpf:TextField Name="Data1" />
+                    <igWpf:TextField Label="Data2 Name" Name="Data2Name" /><igWpf:TextField Name="Data2" />
+                    <igWpf:CheckBoxField Name="Completed" />
+                </igWpf:FieldLayout>
+            </igWpf:XamDataGrid.FieldLayouts>
+        </igWpf:XamDataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<ig:RibbonTabItem x:Class="TandNTestMachine.Modules.Report.Views.Menus.HomeTab"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:local="clr-namespace:TandNTestMachine.Modules.Report.Views.Menus"
+                  xmlns:ig ="http://schemas.infragistics.com/xaml/wpf"
+                  xmlns:igRibbon="http://infragistics.com/Ribbon"
+                  xmlns:igEditors="http://infragistics.com/Editors"
+                  Header="Report">
+    <ig:RibbonGroup Caption="Generate Report">
+        
+        
+        <StackPanel Orientation="Vertical">
+            <igEditors:XamDateTimeEditor Value="{Binding StartDate}" Margin="12,12,12,4" />
+            <Label Content="Start Date" HorizontalAlignment="Center" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <igEditors:XamDateTimeEditor Value="{Binding EndDate}" Margin="12,12,12,4" />
+            <Label Content="End Date" HorizontalAlignment="Center" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ig:ButtonTool Caption="Load Report" ig:RibbonGroup.MaximumSize="ImageAndTextLarge" 
+                       Command="{Binding LoadReportCommand}"></ig:ButtonTool>
+    </ig:RibbonGroup>
+</ig:RibbonTabItem>

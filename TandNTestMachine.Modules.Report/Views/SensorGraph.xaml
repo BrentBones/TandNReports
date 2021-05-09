@@ -1,0 +1,43 @@
+﻿<UserControl xmlns:ig="http://schemas.infragistics.com/xaml"  x:Class="TandNTestMachine.Modules.Report.Views.SensorGraph"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <ig:XamDataChart DataContext="{Binding Items}" DefaultInteraction="DragPan" 
+                         HorizontalZoombarVisibility="Visible" IsHorizontalZoomEnabled="True"
+                         VerticalZoombarVisibility="Visible" IsVerticalZoomEnabled="True"
+                         Legend="{Binding ElementName=Legend}">
+            <ig:XamDataChart.Axes>
+                <ig:NumericYAxis x:Name="YAxis" ></ig:NumericYAxis>
+                <ig:CategoryXAxis  x:Name="XAxis" ItemsSource="{Binding}" 
+                                            Label="{} {ElapsedTime}" >
+                    
+                </ig:CategoryXAxis>
+            </ig:XamDataChart.Axes>
+            <ig:XamDataChart.Series>
+                <ig:SplineSeries ItemsSource="{Binding}" ValueMemberPath="PlateForce" Thickness="5" 
+                                 Title="Plate Force" 
+                                 XAxis="{Binding ElementName=XAxis}"
+                                 YAxis="{Binding ElementName=YAxis}"/>
+                <ig:SplineSeries ItemsSource="{Binding}" ValueMemberPath="PlateHeight" Thickness="5" 
+                                 Title="Plate Height" 
+                                 XAxis="{Binding ElementName=XAxis}"
+                                 YAxis="{Binding ElementName=YAxis}"/>
+                <ig:CrosshairLayer x:Name="Crosshairs"
+                                   Opacity="1"
+                                   Thickness="1.5"
+                                   UseInterpolation="True"
+                                   IsAxisAnnotationEnabled="True"
+                                   YAxisAnnotationInterpolatedValuePrecision="0" 
+                                   XAxisAnnotationInterpolatedValuePrecision="0"
+                                   XAxisAnnotationTextColor="White"
+                                   XAxisAnnotationBackground="#676767"
+                                   XAxisAnnotationOutline="#676767"
+                                   VerticalLineStroke="#3E3E3E" />
+                
+</ig:XamDataChart.Series>
+        </ig:XamDataChart>
+        <ig:Legend x:Name="Legend" ></ig:Legend>
+    </Grid>
+</UserControl>

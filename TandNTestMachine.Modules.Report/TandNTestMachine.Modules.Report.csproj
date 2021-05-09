@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>TandNTestMachine.Modules.Report</AssemblyName>
+    <AssemblyVersion>1.0.199.7798</AssemblyVersion>
+    <FileVersion>1.0.199.7798</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Infragistics.WPF.Charts" Version="20.2.38" />
+    <PackageReference Include="Infragistics.WPF.DataGrids" Version="20.2.38" />
+    <PackageReference Include="Infragistics.WPF.DataTree" Version="20.2.38" />
+    <PackageReference Include="Infragistics.WPF.OutlookBar" Version="20.2.38" />
+    <PackageReference Include="Infragistics.WPF.Ribbon" Version="20.2.38" />
+    <PackageReference Include="Infragistics.WPF.Themes.Office2013" Version="20.2.38" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="Prism.Logging.Serilog" Version="7.2.0.1423" />
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\TandNTestMachine.Data\TandNTestMachine.Data.csproj" />
+    <ProjectReference Include="..\..\TandNTestMachine.Core\TandNTestMachine.Core.csproj" />
+  </ItemGroup>
+</Project>

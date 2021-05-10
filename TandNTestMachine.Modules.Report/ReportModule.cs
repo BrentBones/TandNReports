@@ -26,12 +26,14 @@ namespace TandNTestMachine.Modules.Report
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IReportService, ReportService>();
+
             ViewModelLocationProvider.Register<ReportNavGroup, ReportNavGroupViewModel>();
+
             containerRegistry.RegisterForNavigation<MainReportView, MainReportViewModel>();
             containerRegistry.RegisterForNavigation<StandardReport, StandardReportViewModel>();
             containerRegistry.RegisterForNavigation<IFDReport, IFDReportViewModel>();
             containerRegistry.RegisterForNavigation<SensorGraph, SensorGraphViewModel>();
-            containerRegistry.RegisterSingleton<IReportService, ReportService>();
         }
     }
 }

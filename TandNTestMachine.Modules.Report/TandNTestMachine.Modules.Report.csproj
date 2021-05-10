@@ -3,8 +3,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>TandNTestMachine.Modules.Report</AssemblyName>
-    <AssemblyVersion>1.0.199.7798</AssemblyVersion>
-    <FileVersion>1.0.199.7798</FileVersion>
+    <AssemblyVersion>1.0.212.7799</AssemblyVersion>
+    <FileVersion>1.0.212.7799</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
@@ -21,6 +21,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\TandNTestMachine.Data\TandNTestMachine.Data.csproj" />
-    <ProjectReference Include="..\..\TandNTestMachine.Core\TandNTestMachine.Core.csproj" />
   </ItemGroup>
 </Project>

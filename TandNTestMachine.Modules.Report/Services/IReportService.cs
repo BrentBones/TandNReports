@@ -7,6 +7,6 @@ namespace TandNTestMachine.Modules.Report.Services
     public interface IReportService
     {
         List<TestProcedureReportModel> GetStandReports(DateTime startDate, DateTime endDate);
-        List<IFDReportModel> GetIfdReports(DateTime starDate, DateTime endDate);
+        List<IfdReportModel> GetIfdReports(DateTime starDate, DateTime endDate);
     }
 }

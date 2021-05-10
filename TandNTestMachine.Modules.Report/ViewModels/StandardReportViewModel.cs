@@ -12,15 +12,13 @@ using TandNTestMachine.Modules.Report.Services;
 
 namespace TandNTestMachine.Modules.Report.ViewModels
 {
-    public class StandardReportViewModel : ViewModelBase, IReportViewModel
+    public class StandardReportViewModel : ReportViewModelBase, IReportViewModel
     {
         private readonly IApplicationCommands _applicationCommands;
-        private DateTime _endDate;
+        private readonly IReportService _reportService;
         private List<TestProcedureReportModel> _items;
 
         private string _reportId;
-        private readonly IReportService _reportService;
-        private DateTime _startDate;
 
         public StandardReportViewModel(IApplicationCommands applicationCommands,
             IReportService reportService)
@@ -40,23 +38,10 @@ namespace TandNTestMachine.Modules.Report.ViewModels
             set => SetProperty(ref _items, value);
         }
 
-        public ICommand LoadReportCommand { get; }
-
-        public DateTime StartDate
-        {
-            get => _startDate;
-            set => SetProperty(ref _startDate, value);
-        }
-
-        public DateTime EndDate
-        {
-            get => _endDate;
-            set => SetProperty(ref _endDate, value);
-        }
 
         private void OnLoadReportCommand()
         {
-            Items = _reportService.GetStandReports(_startDate, _endDate);
+            Items = _reportService.GetStandReports(StartDate, EndDate);
         }
 
         public void GraphSensorsLog(object sender, RoutedEventArgs e)

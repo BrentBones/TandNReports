@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TandNTestMachine.Data.Constants
 {
     public class AppDataKeys
     {
-        public const string RoutePath = "RoutePath";
-        public const string PLCType = "PLCType";
-        public const string HelpWebAddress = "HelpWebAddress";
-
         public enum TagAddressType
         {
             Operation = 1,
@@ -19,18 +11,23 @@ namespace TandNTestMachine.Data.Constants
             ExecutingTest = 3
         }
 
+        public const string RoutePath = "RoutePath";
+        public const string PLCType = "PLCType";
+        public const string HelpWebAddress = "HelpWebAddress";
+
+
+        // IFD reports
+        public const string CurrentCycleId = "CurrentCycleId";
+        public const string IfdRecipeName = "IfdRecipeName";
+        public const string IfdOperationName = "IfdOperationName";
+        public const string DepressionOperationName = "DepressionOperationName";
+        public const string ReadForceOperationName = "ReadForceOperationName";
+
         // Copy Protection
-        public static string LicenseKey
-        {
-            get { return string.Format("LicenseKey-{0}", Environment.MachineName); }
-        }
-        public static string HardwareID
-        {
-            get { return string.Format("HardwareID-{0}", Environment.MachineName); }
-        }
-        public static string ActivationKey
-        {
-            get { return string.Format("ActivationKey-{0}", Environment.MachineName); }
-        }
+        public static string LicenseKey => $"LicenseKey-{Environment.MachineName}";
+
+        public static string HardwareID => $"HardwareID-{Environment.MachineName}";
+
+        public static string ActivationKey => $"ActivationKey-{Environment.MachineName}";
     }
 }

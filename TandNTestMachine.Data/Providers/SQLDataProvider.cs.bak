@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
 using TandNTestMachine.Data.Constants;
 using TandNTestMachine.Data.Entity;
 using TandNTestMachine.Data.Interfaces;
@@ -363,21 +362,13 @@ namespace TandNTestMachine.Data.Providers
 
         public bool UpdateRecipe(RecipeWithOperationsModel recipe)
         {
-            try
-            {
-                using var db = new TestMachineContext();
-                var entity = db.Recipe.FirstOrDefault(r => r.Id == recipe.Id);
-                if (entity == null)
-                    return AddRecipe(recipe);
-                _mapper.Map(recipe, entity);
-                var result = db.SaveChanges() > 0;
-                return result;
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "");
-                return false;
-            }
+            using var db = new TestMachineContext();
+            var entity = db.Recipe.FirstOrDefault(r => r.Id == recipe.Id);
+            if (entity == null)
+                return AddRecipe(recipe);
+            _mapper.Map(recipe, entity);
+            var result = db.SaveChanges() > 0;
+            return result;
         }
 
         public bool DeleteRecipe(RecipeWithOperationsModel recipe)

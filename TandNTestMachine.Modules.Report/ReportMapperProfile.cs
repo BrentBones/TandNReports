@@ -10,6 +10,7 @@ namespace TandNTestMachine.Modules.Report
         {
             CreateMap<TestProcedure, TestProcedureReportModel>();
             CreateMap<TestProcedureOperation, TestOperationReportModel>();
+            CreateMap<TestProcedure, IfdReportModel>();
         }
     }
 }

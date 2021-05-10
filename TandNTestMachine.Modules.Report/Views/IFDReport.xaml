@@ -1,9 +1,36 @@
-﻿<UserControl x:Class="TandNTestMachine.Modules.Report.Views.IFDReport"
+﻿<UserControl xmlns:igWPF="http://schemas.infragistics.com/xaml/wpf"  x:Class="TandNTestMachine.Modules.Report.Views.IFDReport"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-            
+           <igWPF:XamDataGrid DataSource="{Binding Path=Items}">
+               <igWPF:XamDataGrid.FieldLayoutSettings>
+                   <igWPF:FieldLayoutSettings AllowAddNew="False" AllowClipboardOperations="None"
+                                              AutoGenerateFields="False" AllowDelete="False" />
+               </igWPF:XamDataGrid.FieldLayoutSettings>
+               <igWPF:XamDataGrid.FieldSettings>
+                   <igWPF:FieldSettings AllowEdit="False" AllowGroupBy="True" FilterClearButtonVisibility="Visible" />
+               </igWPF:XamDataGrid.FieldSettings>
+               <igWPF:XamDataGrid.FieldLayouts>
+                   <igWPF:FieldLayout Key="IfdReportModel">
+                       <igWPF:DateTimeField Label="Start Time" Name="StartTime" />
+                       <igWPF:DateTimeField Label="End Time" Name="EndTime" />
+                       <igWPF:TextField Label="Item Name" Name="ItemName" />
+                       <igWPF:NumericField Name="Temperature" />
+                       <igWPF:NumericField Name="Humidity" />
+                       <igWPF:NumericField Label="Cycle Number" Name="CycleNumber" />
+                       <igWPF:NumericField Name="Increment" />
+                       <igWPF:TextField Label="Depth Percent 1" Name="DepthPercent1" />
+                       <igWPF:TextField Label="Force 1" Name="Force1" />
+                       <igWPF:TextField Label="Plate Height 1" Name="PlateHeight1" />
+                       <igWPF:TextField Label="Depth Percent 2" Name="DepthPercent2" />
+                       <igWPF:TextField Label="Force 2" Name="Force2" />
+                       <igWPF:TextField Label="Plate Height 2" Name="PlateHeight2" />
+                       <igWPF:TextField AllowEdit="True" Label="IFD" Name="Ifd" />
+                       <igWPF:TextField Label="IFD Average" Name="IfdAverage" />
+                   </igWPF:FieldLayout>
+               </igWPF:XamDataGrid.FieldLayouts>
+           </igWPF:XamDataGrid> 
     </Grid>
 </UserControl>
